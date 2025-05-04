@@ -42,6 +42,7 @@ fun SearchRow() {
         var text by rememberSaveable { mutableStateOf("") }
 
         TextField(
+            maxLines = 1,
             value = text,
             onValueChange = { text = it },
             placeholder = {
@@ -78,7 +79,6 @@ fun SearchRow() {
                 )
                 .background(Color.White, RoundedCornerShape(10.dp))
         )
-
         Image(
             painter = painterResource(id = R.drawable.bell),
             contentDescription = null,
