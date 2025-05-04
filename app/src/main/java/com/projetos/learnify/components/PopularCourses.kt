@@ -24,15 +24,15 @@ fun PopularCourses() {
     ) {
         Text(
             text = "Cursos Populares",
-            color = Color(android.graphics.Color.parseColor("#521c98")),
+            color = Color.Black,
             fontSize = 20.sp,
-            fontWeight = FontWeight.SemiBold,
+            fontWeight = FontWeight.Bold,
             modifier = Modifier.weight(1f)
         )
         Text(
             text = "Veja Todos",
-            fontWeight = FontWeight.SemiBold,
-            color = Color(android.graphics.Color.parseColor("#521c98")),
+            fontWeight = FontWeight.Bold,
+            color = Color.Black,
             fontSize = 16.sp
         )
     }

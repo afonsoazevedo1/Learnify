@@ -1,5 +1,6 @@
 package com.projetos.learnify.components
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -23,6 +24,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import coil.compose.rememberImagePainter
 import com.projetos.learnify.model.Items
 import androidx.core.graphics.toColorInt
+import coil.compose.rememberAsyncImagePainter
 import com.projetos.learnify.R
 
 // Componente principal que exibe uma lista horizontal de itens
@@ -40,6 +42,7 @@ fun ItemList(items: List<Items>) {
 }
 
 // Componente que representa um único cartão de item
+@SuppressLint("UseKtx")
 @Composable
 private fun ItemCard(item: Items) {
     ConstraintLayout(
@@ -54,7 +57,7 @@ private fun ItemCard(item: Items) {
         val (topImg, title, ownerIcon, price, score, scoreIcon, name) = createRefs()
 
         // Imagem principal do item (carregada via Coil)
-        val painter = rememberImagePainter(data = item.picUrl.firstOrNull() ?: "")
+        val painter = rememberAsyncImagePainter(model = item.picUrl.firstOrNull() ?: "")
         Image(
             painter = painter,
             contentDescription = null,
@@ -97,7 +100,7 @@ private fun ItemCard(item: Items) {
         )
 
         Text(
-            text = "${item.name}",
+            text = item.name,
             modifier = Modifier
                 .constrainAs(name) {
                     start.linkTo(ownerIcon.end)
@@ -111,7 +114,7 @@ private fun ItemCard(item: Items) {
         Text(
             text = "R$ ${item.price}",
             fontWeight = FontWeight.Bold,
-            color = Color(android.graphics.Color.parseColor("#521c98")),
+            color = Color("#521c98".toColorInt()),
             modifier = Modifier
                 .constrainAs(price) {
                     start.linkTo(parent.start)

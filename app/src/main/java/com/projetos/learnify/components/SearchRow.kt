@@ -36,7 +36,7 @@ fun SearchRow() {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(top = 48.dp, start = 16.dp, end = 8.dp),
+            .padding(top = 20.dp, start = 16.dp, end = 8.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         var text by rememberSaveable { mutableStateOf("") }
@@ -72,8 +72,8 @@ fun SearchRow() {
                 .fillMaxWidth()
                 .weight(1f)
                 .border(
-                    1.dp,
-                    Color("#521C98".toColorInt()),
+                    2.dp,
+                    Color.Black,
                     shape = RoundedCornerShape(8.dp)
                 )
                 .background(Color.White, RoundedCornerShape(10.dp))

@@ -28,7 +28,7 @@ fun Categories() {
         Category("Outros", R.drawable.cat4)
     )
     var selectedCategory by remember { mutableStateOf<Category?>(null) }
-    Column(modifier = Modifier.padding(top = 24.dp)) {
+    Column(modifier = Modifier.padding(top = 8.dp)) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -37,24 +37,24 @@ fun Categories() {
         ) {
             Text(
                 text = "Categoria",
-                color = Color(0xFF521C98),
+                color = Color.Black,
                 fontSize = 20.sp,
-                fontWeight = FontWeight.SemiBold
+                fontWeight = FontWeight.Bold
             )
             Text(
                 text = "Veja todos",
-                fontWeight = FontWeight.SemiBold,
-                color = Color(0xFF521C98),
+                fontWeight = FontWeight.Bold,
+                color = Color.Black,
                 fontSize = 16.sp
             )
         }
 
         Row(
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceEvenly,
+            horizontalArrangement = Arrangement.spacedBy(2.dp),
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(top = 16.dp, start = 16.dp, end = 16.dp)
+                .padding(top = 8.dp, start = 16.dp, end = 16.dp)
         ) {
             categories.forEach { category ->
                 CategoryItem(
@@ -87,7 +87,7 @@ private fun CategoryItem(
             modifier = Modifier
                 .size(100.dp)
                 .background(
-                    color = if (isSelected) Color(0xFFD1C4E9) else Color(0xFFF0E9FA),
+                    color = if (isSelected) Color.LightGray else Color.White,
                     shape = RoundedCornerShape(10.dp)                )
                 .padding(4.dp)
         )
@@ -96,7 +96,7 @@ private fun CategoryItem(
             fontSize = 14.sp,
             fontWeight = FontWeight.SemiBold,
             modifier = Modifier.padding(top = 8.dp),
-            color = Color(0xFF521C98)
+            color = Color.Black
         )
     }
 }

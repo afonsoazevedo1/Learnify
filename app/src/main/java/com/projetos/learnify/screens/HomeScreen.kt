@@ -3,6 +3,8 @@ package com.projetos.learnify.screens
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
@@ -19,6 +21,7 @@ import com.projetos.learnify.viewmodel.HomeViewModel
 @Composable
 fun HomeScreen(viewModel: HomeViewModel) {
     val popularCourses = viewModel.popularCourses.observeAsState(emptyList())
+
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         bottomBar = { BottomBar() }
@@ -27,15 +30,17 @@ fun HomeScreen(viewModel: HomeViewModel) {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(padding)
+                .verticalScroll(rememberScrollState())
         ) {
             SearchRow()
             Banner()
             Categories()
             PopularCourses()
-            ItemList(popularCourses.value)
+            ItemList(items = popularCourses.value)
         }
     }
 }
+
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable

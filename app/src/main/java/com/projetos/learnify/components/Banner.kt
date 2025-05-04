@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.projetos.learnify.R
 
-@Preview(showBackground = true, widthDp = 360, heightDp = 300)
+@Preview(showBackground = true, widthDp = 360, heightDp = 230)
 @Composable
 
 fun BannerPreview() {
@@ -32,8 +32,8 @@ fun Banner() {
     ConstraintLayout(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(top = 24.dp, start = 16.dp, end = 16.dp)
-            .height(250.dp)
+            .padding(top = 8.dp, start = 16.dp, end = 16.dp)
+            .height(220.dp)
     ) {
         val (img, text, promoText, button) = createRefs()
 
@@ -85,15 +85,15 @@ fun Banner() {
         Text(
             text = "Matricular ➡️",
             fontSize = 18.sp,
-            fontWeight = FontWeight.SemiBold,
-            color = if (isClicked) Color.White else Color(0xFF521C98),
+            fontWeight = FontWeight.Bold,
+            color = Color.Black,
             modifier = Modifier
                 .padding(start = 24.dp, top = 16.dp)
                 .constrainAs(button) {
                     top.linkTo(promoText.bottom)
                     bottom.linkTo(parent.bottom)
                 }.background(
-                    color = if (isClicked) Color(0xFF521C98) else Color(0xFFF0E9FA),
+                    color = if (isClicked) Color.LightGray else Color.White,
                     shape = RoundedCornerShape(10.dp)
                 ).clickable { isClicked = !isClicked }
                 .padding(8.dp)
