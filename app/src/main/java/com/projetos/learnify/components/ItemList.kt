@@ -21,7 +21,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
-import coil.compose.rememberImagePainter
 import com.projetos.learnify.model.Items
 import androidx.core.graphics.toColorInt
 import coil.compose.rememberAsyncImagePainter
@@ -58,6 +57,7 @@ private fun ItemCard(item: Items) {
 
         // Imagem principal do item (carregada via Coil)
         val painter = rememberAsyncImagePainter(model = item.picUrl.firstOrNull() ?: "")
+
         Image(
             painter = painter,
             contentDescription = null,
@@ -112,9 +112,9 @@ private fun ItemCard(item: Items) {
 
         // Preço do item
         Text(
-            text = "R$ ${item.price}",
+            text = "R$ ${item.price}0".replace(".", ","),
             fontWeight = FontWeight.Bold,
-            color = Color("#521c98".toColorInt()),
+            color = Color.Black,
             modifier = Modifier
                 .constrainAs(price) {
                     start.linkTo(parent.start)
