@@ -25,6 +25,7 @@ import com.projetos.learnify.model.Items
 import androidx.core.graphics.toColorInt
 import coil.compose.rememberAsyncImagePainter
 import com.projetos.learnify.R
+import com.projetos.learnify.utils.toBrazilianCurrency
 
 // Componente principal que exibe uma lista horizontal de itens
 @Composable
@@ -112,7 +113,7 @@ private fun ItemCard(item: Items) {
 
         // Preço do item
         Text(
-            text = "R$ ${item.price}0".replace(".", ","),
+            text = item.price.toBrazilianCurrency(),
             fontWeight = FontWeight.Bold,
             color = Color.Black,
             modifier = Modifier
